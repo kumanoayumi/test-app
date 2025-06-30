@@ -1,0 +1,23 @@
+{
+  "name": "github-connection-demo",
+  "version": "1.0.0",
+  "description": "Demo app for testing GitHub repository connection",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["github", "demo", "test"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "eslint": "^8.40.0",
+    "nodemon": "^2.0.22"
+  }
+}
