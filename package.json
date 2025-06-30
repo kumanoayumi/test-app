@@ -1,0 +1,14 @@
+{
+  "name": "test-app",
+  "version": "1.0.0",
+  "description": "Test application with design system manager",
+  "scripts": {
+    "dev": "cd design-system-manager && pnpm dev",
+    "build": "cd design-system-manager && pnpm build",
+    "start": "cd design-system-manager && pnpm start",
+    "lint": "cd design-system-manager && pnpm lint"
+  },
+  "keywords": ["design-system", "next.js", "demo"],
+  "author": "",
+  "license": "MIT"
+}
