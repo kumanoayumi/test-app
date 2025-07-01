@@ -76,14 +76,14 @@ export default function VersionHistory() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Version History</h2>
-        <p className="mt-1 text-gray-600 dark:text-gray-400">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Version History</h2>
+        <p className="mt-1 text-sm sm:text-base text-gray-600 dark:text-gray-400">
           Track changes and updates to your design system
         </p>
       </div>
 
       <div className="relative">
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700" />
+        <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700" />
         
         <div className="space-y-8">
           {versionHistory.map((version, index) => (
@@ -94,34 +94,34 @@ export default function VersionHistory() {
               transition={{ delay: index * 0.1 }}
               className="relative flex items-start"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-white dark:bg-gray-800 rounded-full border-4 border-gray-200 dark:border-gray-700 z-10">
-                <GitCommit className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+              <div className="flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-white dark:bg-gray-800 rounded-full border-4 border-gray-200 dark:border-gray-700 z-10">
+                <GitCommit className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-400" />
               </div>
               
-              <div className="ml-6 flex-1">
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+              <div className="ml-4 sm:ml-6 flex-1">
+                <div className="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 border border-gray-200 dark:border-gray-700">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <div className="flex items-center space-x-3">
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
                           Version {version.version}
                         </h3>
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${getVersionColor(version.type)}`}>
                           {version.type.toUpperCase()}
                         </span>
                       </div>
-                      <div className="flex items-center space-x-4 mt-2 text-sm text-gray-500 dark:text-gray-400">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mt-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                         <div className="flex items-center space-x-1">
-                          <Clock className="w-4 h-4" />
+                          <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                           <span>{version.date}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <User className="w-4 h-4" />
+                          <User className="w-3 h-3 sm:w-4 sm:h-4" />
                           <span>{version.author}</span>
                         </div>
                       </div>
                     </div>
-                    <button className="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                    <button className="text-blue-600 hover:text-blue-700 text-xs sm:text-sm font-medium">
                       View Details
                     </button>
                   </div>
@@ -130,7 +130,7 @@ export default function VersionHistory() {
                     <h4 className="font-medium text-gray-900 dark:text-white">Changes:</h4>
                     <ul className="space-y-1">
                       {version.changes.map((change, changeIndex) => (
-                        <li key={changeIndex} className="flex items-start text-gray-600 dark:text-gray-400">
+                        <li key={changeIndex} className="flex items-start text-sm sm:text-base text-gray-600 dark:text-gray-400">
                           <span className="mr-2">•</span>
                           <span>{change}</span>
                         </li>

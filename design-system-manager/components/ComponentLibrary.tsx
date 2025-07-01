@@ -95,13 +95,13 @@ export default function ComponentLibrary() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Component Library</h2>
-        <p className="mt-1 text-gray-600 dark:text-gray-400">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Component Library</h2>
+        <p className="mt-1 text-sm sm:text-base text-gray-600 dark:text-gray-400">
           Browse and use pre-built components
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
@@ -143,7 +143,7 @@ export default function ComponentLibrary() {
         </div>
       </div>
 
-      <div className={viewMode === 'grid' ? 'grid gap-6 md:grid-cols-2 lg:grid-cols-3' : 'space-y-4'}>
+      <div className={viewMode === 'grid' ? 'grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' : 'space-y-4'}>
         {filteredComponents.map((component) => (
           <motion.div
             key={component.id}
@@ -152,19 +152,19 @@ export default function ComponentLibrary() {
             animate={{ opacity: 1, y: 0 }}
             className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden"
           >
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
                     {component.name}
                   </h3>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                  <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                     {component.category}
                   </span>
                 </div>
               </div>
               
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4">
                 {component.description}
               </p>
 
@@ -183,7 +183,7 @@ export default function ComponentLibrary() {
                     <span>Copy</span>
                   </button>
                 </div>
-                <pre className="p-3 bg-gray-900 text-gray-100 rounded-lg overflow-x-auto text-sm">
+                <pre className="p-3 bg-gray-900 text-gray-100 rounded-lg overflow-x-auto text-xs sm:text-sm">
                   <code>{component.code}</code>
                 </pre>
               </div>

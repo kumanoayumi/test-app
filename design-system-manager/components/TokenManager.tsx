@@ -60,32 +60,32 @@ export default function TokenManager() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Design Tokens</h2>
-          <p className="mt-1 text-gray-600 dark:text-gray-400">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Design Tokens</h2>
+          <p className="mt-1 text-sm sm:text-base text-gray-600 dark:text-gray-400">
             Manage your design system&apos;s core values
           </p>
         </div>
-        <div className="flex space-x-3">
+        <div className="flex space-x-2 sm:space-x-3">
           <button
             onClick={exportTokens}
-            className="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
+            className="flex items-center space-x-2 px-3 sm:px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
           >
             <Download className="w-4 h-4" />
-            <span>Export</span>
+            <span className="hidden sm:inline">Export</span>
           </button>
           <button
             onClick={() => setIsAddingToken(true)}
-            className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            className="flex items-center space-x-2 px-3 sm:px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
           >
             <Plus className="w-4 h-4" />
-            <span>Add Token</span>
+            <span className="hidden sm:inline">Add Token</span>
           </button>
         </div>
       </div>
 
-      <div className="flex space-x-2 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex space-x-2 border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
         {categories.map((category) => (
           <button
             key={category}
@@ -101,7 +101,7 @@ export default function TokenManager() {
         ))}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {filteredTokens.map((token) => (
           <motion.div
             key={token.id}
@@ -112,8 +112,8 @@ export default function TokenManager() {
           >
             <div className="flex justify-between items-start mb-2">
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 dark:text-white">{token.name}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{token.description}</p>
+                <h3 className="font-semibold text-gray-900 dark:text-white break-words">{token.name}</h3>
+                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">{token.description}</p>
               </div>
               <div className="flex space-x-1">
                 <button
