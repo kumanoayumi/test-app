@@ -10,3 +10,7 @@ yarn-error.log*
 coverage/
 .vscode/
 .idea/
+
+# Claude documentation
+.claude/
+CLAUDE.md
