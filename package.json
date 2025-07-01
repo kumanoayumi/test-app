@@ -8,7 +8,14 @@
     "start": "cd design-system-manager && pnpm start",
     "lint": "cd design-system-manager && pnpm lint"
   },
-  "keywords": ["design-system", "next.js", "demo"],
+  "keywords": [
+    "design-system",
+    "next.js",
+    "demo"
+  ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.53.2"
+  }
 }
