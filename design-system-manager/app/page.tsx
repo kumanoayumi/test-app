@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Palette, Type, Layout, Box, Settings, GitBranch } from 'lucide-react'
+import { Palette, Type, Layout, Box, Settings, GitBranch, Menu, X } from 'lucide-react'
 import TokenManager from '@/components/TokenManager'
 import ComponentLibrary from '@/components/ComponentLibrary'
 import VersionHistory from '@/components/VersionHistory'
@@ -17,6 +17,7 @@ const tabs = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('tokens')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -28,16 +29,25 @@ export default function Home() {
                 Design System Manager
               </h1>
             </div>
-            <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-              <Settings className="w-5 h-5" />
-            </button>
+            <div className="flex items-center space-x-2">
+              <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                <Settings className="w-5 h-5" />
+              </button>
+              <button
+                className="sm:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                data-testid="mobile-menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
       <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8 overflow-x-auto">
+          <div className="hidden sm:flex space-x-8 overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon
               return (
@@ -58,6 +68,36 @@ export default function Home() {
               )
             })}
           </div>
+
+          {/* Mobile menu */}
+          {mobileMenuOpen && (
+            <div className="sm:hidden py-4">
+              <div className="flex flex-col space-y-2">
+                {tabs.map((tab) => {
+                  const Icon = tab.icon
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => {
+                        setActiveTab(tab.id)
+                        setMobileMenuOpen(false)
+                      }}
+                      className={`
+                        flex items-center space-x-2 py-3 px-4 rounded-lg transition-colors
+                        ${activeTab === tab.id
+                          ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
+                          : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'
+                        }
+                      `}
+                    >
+                      <Icon className="w-5 h-5" />
+                      <span>{tab.label}</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
